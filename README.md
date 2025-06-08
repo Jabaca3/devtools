@@ -11,7 +11,7 @@ brew install alacritty tmux neovim
 
 # Terminal
 
-### alacritty?
+### Alacritty
 Alacritty is available throught the different OS's I use. 
 
 mkdir -p ~/.config/alacritty
@@ -22,7 +22,7 @@ brew tap homebrew/cask-fonts
 brew install --cask font-jetbrains-mono-nerd-font
 ```
 
-### tmux
+### Tmux
 
 install tmux plugin manager
 ```bash
@@ -60,7 +60,7 @@ commands:
 
 
 
-### Why oh-my-zsh
+### oh-my-zsh
 
 Oh My Zsh is a delightful, open source, community-driven framework for managing your Zsh configuration. It comes bundled with thousands of helpful functions, helpers, plugins, themes, and a few things that make you shout...
 
