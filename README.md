@@ -57,6 +57,10 @@ commands:
 | **Switch to window 0–9**    | `Ctrl-b 0`–`Ctrl-b 9`                      | Jump to a specific window                 |
 | **Rename current window**   | `Ctrl-b ,`                                 | Rename the window (good for organization) |
 | **Close current window**    | Type `exit`, or `Ctrl-d` inside the window |                                           |
+| **Vertical splitscreen**    | `Ctrl-b %`                                 |                                           |
+| **Jump panel terminal**     | `Ctrl-b <Arrow key>`                       |                                           |
+
+
 
 
 
