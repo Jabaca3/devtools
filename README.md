@@ -1,8 +1,8 @@
 # devtools
 Standardizing my devtools so I can use them everywhere
 
-alacritty - terminal emulator
-tmux - terminal multiplexer
+alacritty - terminal emulator,
+tmux - terminal multiplexer,
 neovim - text editor
 
 ```bash
@@ -46,6 +46,18 @@ if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] &&
   exec tmux
 fi
 ```
+
+commands:
+| Action                      | Shortcut                                   | Description                               |
+| --------------------------- | ------------------------------------------ | ----------------------------------------- |
+| **New window**              | `Ctrl-b c`                                 | Creates a new window                      |
+| **Next window**             | `Ctrl-b n`                                 | Move to next window                       |
+| **Previous window**         | `Ctrl-b p`                                 | Move to previous window                   |
+| **Choose window from list** | `Ctrl-b w`                                 | See and select from a window list         |
+| **Switch to window 0–9**    | `Ctrl-b 0`–`Ctrl-b 9`                      | Jump to a specific window                 |
+| **Rename current window**   | `Ctrl-b ,`                                 | Rename the window (good for organization) |
+| **Close current window**    | Type `exit`, or `Ctrl-d` inside the window |                                           |
+
 
 
 ### Why oh-my-zsh
