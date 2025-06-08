@@ -1,9 +1,9 @@
 # devtools
 Standardizing my devtools so I can use them everywhere
 
-alacritty - terminal emulator,
-tmux - terminal multiplexer,
-neovim - text editor
+- alacritty - terminal emulator
+- tmux - terminal multiplexer
+- neovim - text editor
 
 ```bash
 brew install alacritty tmux neovim
