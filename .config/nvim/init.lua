@@ -2,5 +2,5 @@ require('remap')
 require('options')
 require('plugins')
 require('plugins.telescope')
+require('plugins.treesitter')
 require('colors')
-
