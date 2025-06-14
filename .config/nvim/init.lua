@@ -1,3 +1,5 @@
-require("options")
-require("remap")
-require("plugins")
+require('remap')
+require('options')
+require('plugins')
+require('plugins.telescope')
+
