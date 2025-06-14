@@ -1,10 +1,8 @@
-
-
 require('material').setup({
     -- ... other settings
     disable = {
         -- ... other settings
-        background = true, 
+        background = true,
     },
 })
 
