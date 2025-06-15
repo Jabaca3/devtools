@@ -1,4 +1,4 @@
-# devtools
+# dotfiles
 Standardizing my devtools so I can use them everywhere
 
 - alacritty - terminal emulator
