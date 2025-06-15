@@ -2,15 +2,22 @@ local lsp = require("lsp-zero")
 
 -- Mason Setup
 require("mason").setup()
-
 require("mason-lspconfig").setup({
     ensure_installed = {
         "pyright",
         "eslint",
+        "ruff",
     },
     handlers = {
         lsp.default_setup,
-    },
+        ["ruff_lsp"] = function()
+            require("lspconfig").ruff_lsp.setup({
+                on_attach = function(client)
+                    client.server_capabilities.documentFormattingProvider = false -- optional
+                end
+            })
+        end
+    }
 })
 
 lsp.preset("recommended")
@@ -30,16 +37,9 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
 end)
 
--- Null-ls (formatting/linting)
+-- Null-ls only for things not handled by LSP
 local null_ls = require("null-ls")
-
 null_ls.setup({
-    sources = {
-        null_ls.builtins.diagnostics.ruff,
-        null_ls.builtins.formatting.ruff,
-        null_ls.builtins.diagnostics.eslint_d,
-        null_ls.builtins.code_actions.eslint_d,
-    },
     on_attach = function(client, bufnr)
         if client.supports_method("textDocument/formatting") then
             vim.api.nvim_create_autocmd("BufWritePre", {
