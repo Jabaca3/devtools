@@ -7,6 +7,8 @@ require("mason-lspconfig").setup({
         "pyright",
         "eslint",
         "ruff",
+        "eslint",
+        "ast_grep",
     },
     handlers = {
         lsp.default_setup,
@@ -16,11 +18,29 @@ require("mason-lspconfig").setup({
                     client.server_capabilities.documentFormattingProvider = false -- optional
                 end
             })
-        end
+        end,
+        ["eslint"] = function()
+            require("lspconfig").eslint.setup({
+                on_attach = function(client, bufnr)
+                    client.server_capabilities.documentFormattingProvider = true
+                    -- Optional: auto-fix on save
+                    vim.api.nvim_create_autocmd("BufWritePre", {
+                        buffer = bufnr,
+                        command = "EslintFixAll",
+                    })
+                end
+            })
+        end,
+        ["sg"] = function()
+            require("lspconfig").sg.setup({
+                on_attach = function(client, bufnr)
+                    client.server_capabilities.documentFormattingProvider = true
+                end
+            })
+        end,
     }
 })
 
-lsp.preset("recommended")
 
 lsp.on_attach(function(client, bufnr)
     local opts = { buffer = bufnr, remap = false }
@@ -57,4 +77,5 @@ vim.keymap.set("n", "<leader>lf", function()
     vim.lsp.buf.format({ async = true })
 end, { desc = "Format file with LSP" })
 
+lsp.preset("recommended")
 lsp.setup()
